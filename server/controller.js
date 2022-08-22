@@ -34,3 +34,10 @@ module.exports = {
     }
 
 }
+
+module.exports = {
+
+    postList: (req, res) => {
+        res.status(201)
+    }
+}
