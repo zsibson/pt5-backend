@@ -19,7 +19,7 @@ const getFortune = () => {
 }
 
 const postList = () => {
-    axios.post("http://localhost:4000/api/grocery", {name: groceryList} )
+    axios.post("http://localhost:4000/api/grocery/", {name: groceryList} )
     .then(res => {
         const data = res.data;
         alert(data);
@@ -29,4 +29,4 @@ const postList = () => {
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
-groceryList.addEventListener('click', postList)
+groceryList.addEventListener('submit', postList)

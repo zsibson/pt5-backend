@@ -8,11 +8,7 @@ module.exports = {
         let randomCompliment = compliments[randomIndex];
       
         res.status(200).send(randomCompliment);
-    }
-
-}
-
-module.exports = {
+    },
 
     getFortune: (req, res) => {
         const fortune = [
@@ -31,13 +27,12 @@ module.exports = {
         let randomFortune = fortune[randomIndex];
       
         res.status(200).send(randomFortune);
-    }
+    },
+
+        postList: (req, res) => {
+            res.status(201)
+        }
+    
 
 }
 
-module.exports = {
-
-    postList: (req, res) => {
-        res.status(201)
-    }
-}
