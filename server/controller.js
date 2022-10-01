@@ -1,4 +1,6 @@
-module.exports = {
+  let groceries = [];
+  
+  module.exports = {
 
     getCompliment: (req, res) => {
         const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
@@ -30,9 +32,11 @@ module.exports = {
     },
 
         postList: (req, res) => {
-            res.status(201)
-        }
-    
+            const { inputValue } = req.body;
+            groceries.push(inputValue);
+            res.status(200).send(groceries);
+            console.log(req.body);
+            
+ }
 
 }
-

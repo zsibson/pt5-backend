@@ -1,6 +1,8 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
-const groceryList = document.getElementById("groceryList")
+const form = document.getElementById("form")
+const formInput = document.getElementById("form-input")
+
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -15,18 +17,21 @@ const getFortune = () => {
         .then(res => {
             const data = res.data;
             alert(data);
-        })
-}
+        });        
+};
 
-const postList = () => {
-    axios.post("http://localhost:4000/api/grocery/", {name: groceryList} )
-    .then(res => {
-        const data = res.data;
-        alert(data);
-        console.log(postList)
-    })
-}
+const postList = (e) => {
+    e.preventDefault()
+    const inputValue = formInput.value;
+    console.log(inputValue);
+    const body = { inputValue };
+    axios.post("http://localhost:4000/api/groceries/", body)
+        .then(res => {
+            const data = res.data;
+            alert(data);
+        })
+};
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
-groceryList.addEventListener('submit', postList)
+form.addEventListener('submit', postList)
