@@ -34,9 +34,8 @@
         postList: (req, res) => {
             const { inputValue } = req.body;
             groceries.push(inputValue);
-            res.status(200).send(groceries);
+            res.status(200).send(inputValue);
             console.log(req.body);
-            
  }
 
 }

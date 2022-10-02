@@ -2,7 +2,7 @@ const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const form = document.getElementById("form")
 const formInput = document.getElementById("form-input")
-
+const section = document.getElementById("section")
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -27,8 +27,9 @@ const postList = (e) => {
     const body = { inputValue };
     axios.post("http://localhost:4000/api/groceries/", body)
         .then(res => {
-            const data = res.data;
-            alert(data);
+        let list = document.createElement("div");
+        list.innerHTML = `<h3>${res.data}</h3>;`;
+        section.appendChild(list);
         })
 };
 
